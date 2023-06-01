@@ -1,0 +1,4 @@
+server:
+  port: ${PORT:8081}
+  
+message: Test catalog-service.yml

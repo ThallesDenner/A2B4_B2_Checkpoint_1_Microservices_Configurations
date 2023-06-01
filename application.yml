@@ -1,0 +1,29 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: company-microservice
+    description: This is the checkpoint 1 microservices architecture
+    version: 1.0.0
+  author: Thalles Denner
+  mail: thalles@email.com
+
+server:
+  port: ${PORT:9999}
+  
+message: Test application.yml

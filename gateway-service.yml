@@ -1,0 +1,24 @@
+server:
+  port: ${PORT:8080}
+
+spring:
+  cloud:
+    gateway:
+      default-filters:
+        - name: LogFilter
+      routes:
+        - id: movieRoute
+          uri: lb://movie-service
+          predicates:
+            - Path=/movies/**
+          # filters:
+          #   - name: MovieFilter
+        - id: catalogRoute
+          uri: lb://catalog-service
+          predicates:
+            - Path=/catalog/**
+          # filters:
+          #   - AddRequestHeader = catalog-request-header,custom-catalog-request-header
+          #   - AddResponseHeader = catalog-response-header,custom-catalog-response-header
+
+message: Test gateway-service.yml
